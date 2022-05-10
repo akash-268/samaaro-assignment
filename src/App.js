@@ -1,6 +1,6 @@
 import "./App.css";
 import { Button, Form } from "react-bootstrap";
-import { useState } from "react";
+import { useState} from "react";
 
 function App() {
   const [select1, setSelect1] = useState("");
@@ -9,75 +9,78 @@ function App() {
 
   function select1Handler(e) {
     setSelect1(e.target.value);
-    // console.log(e.target.value);
   }
+
   function select2Handler(e) {
     setSelect2(e.target.value);
-    // console.log(e.target.value);
   }
+
   function select3Handler(e) {
     setSelect3(e.target.value);
-    // console.log(e.target.value);
   }
-  function formsubmitHandler(e){
-    e.preventDefault()
-    console.log(select1);
-    console.log(select2);
-    console.log(select3);
+
+  function formsubmitHandler(e) {
+    e.preventDefault();
+    console.log(select1, select2, select3);
   }
-  function disabledButtonHandler(){
-    console.log('Select all values')
+
+  function disabledButtonHandler() {
+    alert("Error!!! Please Select all values");
   }
-  const [input,setInput] = useState([]);
-  const options = ['A','B','C','D','E']
+
+  const options = ["A", "B", "C", "D", "E"];
+
+  function availableOptions(option) {
+    return option !== select1 && option !== select2 && option !== select3;
+  }
+
   return (
-    <div>
+    <div id="body">
       <Form className="form_control">
         <Form.Group className="mb-3">
           <Form.Select
-            aria-label="Default select example"
             className="form_option"
             onChange={select1Handler}
             value={select1}
           >
-            <option>Dropdown 1</option>
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="C">C</option>
-            <option value="D">D</option>
-            <option value="E">E</option>
+            {select1 === "" && <option>Select a Value</option>}
+            {!(select1 === "") && <option value={select1}>{select1}</option>}
+            {options.filter(availableOptions).map((each) => (
+              <option value={each}>{each}</option>
+            ))}
           </Form.Select>
           <Form.Select
-            aria-label="Default select example"
             className="form_option"
             onChange={select2Handler}
             value={select2}
           >
-            <option>Dropdown 2</option>
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="C">C</option>
-            <option value="D">D</option>
-            <option value="E">E</option>
+            {select2 === "" && <option>Select a Value</option>}
+            {!(select2 === "") && <option value={select2}>{select2}</option>}
+            {options.filter(availableOptions).map((each) => (
+              <option value={each}>{each}</option>
+            ))}
           </Form.Select>
           <Form.Select
-            aria-label="Default select example"
             className="form_option"
             onChange={select3Handler}
             value={select3}
           >
-            <option>Dropdown 3</option>
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="C">C</option>
-            <option value="D">D</option>
-            <option value="E">E</option>
+            {select3 === "" && <option>Select a Value</option>}
+            {!(select3 === "") && <option value={select3}>{select3}</option>}
+            {options.filter(availableOptions).map((each) => {
+              return <option value={each}>{each}</option>;
+            })}
           </Form.Select>
-          {(select1 && select2 && select3)?
-          <Button type='submit' onClick={formsubmitHandler}>Submit</Button>
-          :
-          <Button  onClick={disabledButtonHandler}>Submit</Button>}
         </Form.Group>
+        {select1 && select2 && select3 ? (
+          <Button variant="success" type="submit" onClick={formsubmitHandler}>
+            Submit
+          </Button>
+        ) : (
+          <Button variant="secondary" onClick={disabledButtonHandler}>
+            Submit
+          </Button>
+        )}
       </Form>
     </div>
   );
