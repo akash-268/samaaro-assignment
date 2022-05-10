@@ -22,10 +22,16 @@ function App() {
   function formsubmitHandler(e) {
     e.preventDefault();
     console.log(select1, select2, select3);
+    setSelect1('')
+    setSelect2('')
+    setSelect3('')
   }
 
   function disabledButtonHandler() {
     alert("Error!!! Please Select all values");
+    setSelect1("");
+    setSelect2("");
+    setSelect3("");
   }
 
   const options = ["A", "B", "C", "D", "E"];
