@@ -45,8 +45,10 @@ function App() {
           >
             {select1 === "" && <option>Select a Value</option>}
             {!(select1 === "") && <option value={select1}>{select1}</option>}
-            {options.filter(availableOptions).map((each) => (
-              <option value={each}>{each}</option>
+            {options.filter(availableOptions).map((each, key) => (
+              <option value={each} key={key}>
+                {each}
+              </option>
             ))}
           </Form.Select>
           <Form.Select
@@ -56,8 +58,10 @@ function App() {
           >
             {select2 === "" && <option>Select a Value</option>}
             {!(select2 === "") && <option value={select2}>{select2}</option>}
-            {options.filter(availableOptions).map((each) => (
-              <option value={each}>{each}</option>
+            {options.filter(availableOptions).map((each, key) => (
+              <option value={each} key={key}>
+                {each}
+              </option>
             ))}
           </Form.Select>
           <Form.Select
@@ -67,9 +71,11 @@ function App() {
           >
             {select3 === "" && <option>Select a Value</option>}
             {!(select3 === "") && <option value={select3}>{select3}</option>}
-            {options.filter(availableOptions).map((each) => {
-              return <option value={each}>{each}</option>;
-            })}
+            {options.filter(availableOptions).map((each, key) => (
+              <option value={each} key={key}>
+                {each}
+              </option>
+            ))}
           </Form.Select>
         </Form.Group>
         {select1 && select2 && select3 ? (
