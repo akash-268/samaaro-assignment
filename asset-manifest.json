@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/samaaro-assignment/static/css/main.34befd54.css",
+    "main.js": "/samaaro-assignment/static/js/main.cea59932.js",
+    "static/js/787.97a949a1.chunk.js": "/samaaro-assignment/static/js/787.97a949a1.chunk.js",
+    "index.html": "/samaaro-assignment/index.html",
+    "main.34befd54.css.map": "/samaaro-assignment/static/css/main.34befd54.css.map",
+    "main.cea59932.js.map": "/samaaro-assignment/static/js/main.cea59932.js.map",
+    "787.97a949a1.chunk.js.map": "/samaaro-assignment/static/js/787.97a949a1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.34befd54.css",
+    "static/js/main.cea59932.js"
+  ]
+}
